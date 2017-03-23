@@ -1,22 +1,22 @@
-package com.simple_jie.codememory;
+package com.simple_jie.codememory.presentation.home;
 
-import android.database.Observable;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.simple_jie.codememory.R;
+import com.simple_jie.codememory.presentation.BaseActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.Flowable;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreateA(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 

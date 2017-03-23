@@ -18,9 +18,7 @@ ext {
     rxAndroidVersion = '2.0.1'
     rxJavaVersion = '2.0.7'
 
-    daggerCompilerVersion = '2.2'
-    daggerVersion = '2.2'
-
+    daggerVersion = '2.10'
 
     dependentLibraries = [
             appcompat_v7           : "com.android.support:appcompat-v7:${appcompatVersion}",
