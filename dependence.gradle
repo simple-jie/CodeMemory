@@ -1,0 +1,39 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    androidBuildToolsVersion = "25.0.1"
+    androidMinSdkVersion = 14
+    androidTargetSdkVersion = 25
+    androidCompileSdkVersion = 25
+    appcompatVersion = '25.2.0'
+    supportVersion = '25.2.0'
+
+
+    butterKnifeVersion = '8.5.1'
+
+    rxAndroidVersion = '2.0.1'
+    rxJavaVersion = '2.0.7'
+
+    daggerCompilerVersion = '2.2'
+    daggerVersion = '2.2'
+
+
+    dependentLibraries = [
+            appcompat_v7           : "com.android.support:appcompat-v7:${appcompatVersion}",
+            support_design         : "com.android.support:design:${supportVersion}",
+
+            butterKnife            : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterknifeCompiler    : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            butterknifeGradlePlugin: "com.jakewharton:butterknife-gradle-plugin:${butterKnifeVersion}",//for Lib Project
+
+            rxJava                 : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid              : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+
+            daggerCompiler         : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger                 : "com.google.dagger:dagger:${daggerVersion}",
+    ]
+}
