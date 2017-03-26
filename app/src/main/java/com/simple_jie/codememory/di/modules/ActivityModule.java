@@ -1,5 +1,7 @@
 package com.simple_jie.codememory.di.modules;
 
+import android.util.Log;
+
 import com.simple_jie.codememory.di.PerActivity;
 import com.simple_jie.codememory.presentation.BaseActivity;
 import com.simple_jie.codememory.presentation.ScreenLifecycle;

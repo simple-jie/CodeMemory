@@ -2,7 +2,10 @@ package com.simple_jie.codememory.di.modules;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
+import com.simple_jie.codememory.presentation.dagger.ICoffeeMaker;
+import com.simple_jie.codememory.presentation.dagger.SingletonCoffeeMaker;
 import com.simple_jie.codememory.utility.JobThreadExecutor;
 import com.simple_jie.codememory.utility.UIPostExecutionThread;
 import com.simple_jie.domain.executor.PostExecutionThread;
@@ -39,5 +42,12 @@ public class ApplicationModule {
     @Singleton
     public PostExecutionThread providePostExecutionThread(UIPostExecutionThread thread) {
         return thread;
+    }
+
+    @Provides
+    @Singleton
+    public ICoffeeMaker provideCoffeeMaker(SingletonCoffeeMaker coffeeMaker) {
+        Log.d("dagger", "provideCoffeeMaker Singleton");
+        return coffeeMaker;
     }
 }

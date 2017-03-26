@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.simple_jie.codememory.App;
 import com.simple_jie.codememory.di.components.ApplicationComponent;
-import com.simple_jie.codememory.utility.Naviagtor;
+import com.simple_jie.codememory.utility.Navigator;
 
 import javax.inject.Inject;
 
@@ -18,7 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private ScreenLifecycleProxy lifecycleProxy;
 
     @Inject
-    protected Naviagtor naviagtor;
+    protected Navigator naviagtor;
 
     @Override
     protected final void onCreate(Bundle savedInstanceState) {

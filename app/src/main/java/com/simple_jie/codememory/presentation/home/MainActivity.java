@@ -15,6 +15,7 @@ import com.simple_jie.codememory.presentation.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
@@ -62,5 +63,20 @@ public class MainActivity extends BaseActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @OnClick(R.id.dagger_simple)
+    public void onDaggerSimpleClick() {
+        naviagtor.goToDaggerSimple(this);
     }
 }
