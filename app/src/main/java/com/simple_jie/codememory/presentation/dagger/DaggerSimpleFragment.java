@@ -15,6 +15,7 @@ import com.simple_jie.codememory.presentation.BaseFragment;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Provider;
 
 /**
  * Created by Xingbo.Jie on 26/3/17.
@@ -35,6 +36,13 @@ public class DaggerSimpleFragment extends BaseFragment {
     @Named("each")
     ICoffeeMaker eachCoffeeMaker;
 
+
+    @Inject
+    Provider<PerActivtiyCofferMaker> perActivtiyCofferMakerProvider;
+
+    @Inject
+    Provider<NomalCofferMaker> nomalCofferMakerProvider;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -52,9 +60,23 @@ public class DaggerSimpleFragment extends BaseFragment {
         simpleComponent.inject(this);
         Log.d("dagger", "onCreate fragment 1");
 
+        logObject();
+
+        providerInject();
+    }
+
+    private void logObject() {
         Log.d("dagger", "coffeeMaker in fragment:" + coffeeMaker.hashCode());
         Log.d("dagger", "nomalCoffeeMaker in fragment:" + nomalCoffeeMaker.hashCode());
         Log.d("dagger", "eachCoffeeMaker in fragment:" + eachCoffeeMaker.hashCode());
+    }
+
+    private void providerInject() {
+        // Provider inject
+        for (int i = 0; i < 2; i++) {
+            Log.d("dagger", "provider PerActivtiyCofferMaker in fragment : " + perActivtiyCofferMakerProvider.get().hashCode());
+            Log.d("dagger", "provider NomalCofferMaker in fragment : " + nomalCofferMakerProvider.get().hashCode());
+        }
     }
 
     @Nullable

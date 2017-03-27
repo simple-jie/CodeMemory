@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Provider;
 
 import dagger.Lazy;
 import io.reactivex.Observable;
@@ -28,15 +29,26 @@ public class DaggerSimpleActivity extends BaseActivity implements HasComponent<D
 
     @Inject
     @Named("nomal")
-    ICoffeeMaker nomalCoffeeMaker;
+    ICoffeeMaker nomalCoffeeMaker; // perActivity
 
     @Inject
     @Named("each")
-    ICoffeeMaker eachCoffeeMaker;
+    ICoffeeMaker eachCoffeeMaker; // each
 
     @Inject
     @Named("each")
-    Lazy<ICoffeeMaker> lazyCoffeeMaker;
+    Lazy<ICoffeeMaker> lazyCoffeeMaker; // lazy
+
+    // compile error
+    //@Inject
+    //Provider<SingletonCoffeeMaker> perActivtiyCofferMakerProvider;
+
+
+    @Inject
+    Provider<PerActivtiyCofferMaker> perActivtiyCofferMakerProvider;
+
+    @Inject
+    Provider<NomalCofferMaker> nomalCofferMakerProvider;
 
     DaggerSimpleComponent daggerSimpleComponent;
 
@@ -47,23 +59,30 @@ public class DaggerSimpleActivity extends BaseActivity implements HasComponent<D
         //before fragment initialize
         getComponent().inject(this);
         Log.d("dagger", "onCreateA 2");
-//        Log.d("dagger", "coffeeMaker in activity:" + coffeeMaker.hashCode());
-//        Log.d("dagger", "nomalCoffeeMaker in activity:" + nomalCoffeeMaker.hashCode());
-//        Log.d("dagger", "eachCoffeeMaker in activity:" + eachCoffeeMaker.hashCode());
+//      logObject();
 
         // fragment initialize
         setContentView(R.layout.activity_dagger);
 
+        logObject();
+
+        //after fragment initialize
+//      getComponent().inject(this);
+//      logObject();
+
+        // lazy inject
+        lazyInject();
+
+        providerInject();
+    }
+
+    private void logObject() {
         Log.d("dagger", "coffeeMaker in activity:" + coffeeMaker.hashCode());
         Log.d("dagger", "nomalCoffeeMaker in activity:" + nomalCoffeeMaker.hashCode());
         Log.d("dagger", "eachCoffeeMaker in activity:" + eachCoffeeMaker.hashCode());
+    }
 
-        //after fragment initialize
-//        getComponent().inject(this);
-//        Log.d("dagger", "coffeeMaker in activity:" + coffeeMaker.hashCode());
-//        Log.d("dagger", "nomalCoffeeMaker in activity:" + nomalCoffeeMaker.hashCode());
-//        Log.d("dagger", "eachCoffeeMaker in activity:" + eachCoffeeMaker.hashCode());
-
+    private void lazyInject() {
         Observable.timer(5, TimeUnit.SECONDS)
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
@@ -72,6 +91,14 @@ public class DaggerSimpleActivity extends BaseActivity implements HasComponent<D
                         Log.d("dagger", "lazyCoffeeMaker " + lazyCoffeeMaker.get().hashCode());
                     }
                 });
+    }
+
+    private void providerInject() {
+        // Provider inject
+        for (int i = 0; i < 2; i++) {
+            Log.d("dagger", "provider PerActivtiyCofferMaker in activity : " + perActivtiyCofferMakerProvider.get().hashCode());
+            Log.d("dagger", "provider NomalCofferMaker in activity : " + nomalCofferMakerProvider.get().hashCode());
+        }
     }
 
     @Override
