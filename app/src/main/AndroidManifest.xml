@@ -20,7 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.dagger.DaggerSimpleActivity">
+        <activity
+            android:name=".presentation.dagger.DaggerSimpleActivity"
+            android:label="@string/dagger_simple">
+        </activity>
+        <activity
+            android:name=".presentation.dagger.DaggerSimple2Activity"
+            android:label="@string/dagger_simple2">
         </activity>
     </application>
 

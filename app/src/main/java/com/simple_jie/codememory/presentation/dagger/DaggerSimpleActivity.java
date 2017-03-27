@@ -50,6 +50,9 @@ public class DaggerSimpleActivity extends BaseActivity implements HasComponent<D
     @Inject
     Provider<NomalCofferMaker> nomalCofferMakerProvider;
 
+    @Inject
+    ReusableCoffeeMaker reusableCoffeeMaker;
+
     DaggerSimpleComponent daggerSimpleComponent;
 
 
@@ -80,6 +83,7 @@ public class DaggerSimpleActivity extends BaseActivity implements HasComponent<D
         Log.d("dagger", "coffeeMaker in activity:" + coffeeMaker.hashCode());
         Log.d("dagger", "nomalCoffeeMaker in activity:" + nomalCoffeeMaker.hashCode());
         Log.d("dagger", "eachCoffeeMaker in activity:" + eachCoffeeMaker.hashCode());
+        Log.d("dagger", "reusableCoffeeMaker in activity:" + reusableCoffeeMaker.hashCode());
     }
 
     private void lazyInject() {

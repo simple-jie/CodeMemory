@@ -3,6 +3,7 @@ package com.simple_jie.codememory.utility;
 import android.content.Context;
 import android.content.Intent;
 
+import com.simple_jie.codememory.presentation.dagger.DaggerSimple2Activity;
 import com.simple_jie.codememory.presentation.dagger.DaggerSimpleActivity;
 
 import javax.inject.Inject;
@@ -21,5 +22,9 @@ public class Navigator {
 
     public void goToDaggerSimple(Context context) {
         context.startActivity(new Intent(context, DaggerSimpleActivity.class));
+    }
+
+    public void goToDaggerSimple2(Context context) {
+        context.startActivity(new Intent(context, DaggerSimple2Activity.class));
     }
 }

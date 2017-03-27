@@ -6,7 +6,6 @@ import com.simple_jie.codememory.di.PerActivity;
 import com.simple_jie.codememory.presentation.BaseActivity;
 import com.simple_jie.codememory.presentation.dagger.ICoffeeMaker;
 import com.simple_jie.codememory.presentation.dagger.NomalCofferMaker;
-import com.simple_jie.codememory.presentation.dagger.SingletonCoffeeMaker;
 
 import javax.inject.Named;
 
