@@ -28,6 +28,9 @@
             android:name=".presentation.dagger.DaggerSimple2Activity"
             android:label="@string/dagger_simple2">
         </activity>
+        <activity android:name=".presentation.dagger2.SubcomponentActivity"
+            android:label="@string/dagger_subcomponent">
+        </activity>
     </application>
 
 </manifest>

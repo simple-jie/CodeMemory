@@ -92,4 +92,5 @@
     <string name="action_settings">Settings</string>
     <string name="dagger_simple">Dagger Simple</string>
     <string name="dagger_simple2">Dagger Simple 2</string>
+    <string name="dagger_subcomponent">Subcomponent</string>
 </resources>

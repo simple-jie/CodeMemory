@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.simple_jie.codememory.presentation.dagger.DaggerSimple2Activity;
 import com.simple_jie.codememory.presentation.dagger.DaggerSimpleActivity;
+import com.simple_jie.codememory.presentation.dagger2.SubcomponentActivity;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -26,5 +27,9 @@ public class Navigator {
 
     public void goToDaggerSimple2(Context context) {
         context.startActivity(new Intent(context, DaggerSimple2Activity.class));
+    }
+
+    public void goToDaggerSubcomponent(Context context) {
+        context.startActivity(new Intent(context, SubcomponentActivity.class));
     }
 }

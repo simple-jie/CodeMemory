@@ -9,4 +9,9 @@
         style="@style/label"
         android:text="@string/dagger_simple2"/>
 
+    <TextView
+        android:id="@+id/subcomponent"
+        style="@style/label"
+        android:text="@string/dagger_subcomponent"/>
+
 </LinearLayout>

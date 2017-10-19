@@ -115,4 +115,9 @@ public class DaggerSimpleFragment extends BaseFragment {
     void onSimple2Click() {
         navigator.goToDaggerSimple2(getContext());
     }
+
+    @OnClick(R.id.subcomponent)
+    void onSubcomponentClick() {
+        navigator.goToDaggerSubcomponent(getContext());
+    }
 }
